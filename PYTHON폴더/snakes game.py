@@ -1,19 +1,25 @@
-from ssl import RAND_bytes
+#터틀 모듈과 스크린 모듈 불러오기
 from turtle import Turtle, Screen
+#시간 모듈
 import time
+#랜덤 모듈
 import random
 
-#키
+#키 함수
 def up():
+    #만약 머리방향 270 방향이 아닐때만 머리 방향 90으로 보기 가능 (머리가 밑을 향할때 위를 못봄)
     if snakes[0].heading() != 270:
         snakes[0].setheading(90)
 def down():
+    #위와 같은원리 (위를 볼때 밑을 못봄)
     if snakes[0].heading() != 90:
         snakes[0].setheading(270)
 def right():
+    #같은원리
     if snakes[0].heading() != 180:
         snakes[0].setheading(0)
 def left():
+    #같은원리
     if snakes[0].heading() != 0:
         snakes[0].setheading(180)
 
