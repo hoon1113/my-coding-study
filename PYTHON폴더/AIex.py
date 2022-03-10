@@ -1,14 +1,106 @@
-hp=100
-attack=10
-slim_hp=100
-slim_at=10
-frist_at=int(input("1=공격,2=도망"))
-def sp_attack():
-    SP=attack*0.1
-    if sp_attack ==True:
-        attack=slim_hp-(attack+SP)
-if frist_at==1:
-    HP=slim_hp-sp_attack
-    print("슬라임 피가 {}남았다.".format(HP))
-elif frist_at==2:
-    print("도망쳤다")
+from ssl import RAND_bytes
+from turtle import Turtle, Screen
+import time
+import random
+
+#키
+def up():
+    if snakes[0].heading() != 270:
+        snakes[0].setheading(90)
+def down():
+    if snakes[0].heading() != 90:
+        snakes[0].setheading(270)
+def right():
+    if snakes[0].heading() != 180:
+        snakes[0].setheading(0)
+def left():
+    if snakes[0].heading() != 0:
+        snakes[0].setheading(180)
+
+#뱀 모양과 색깔
+def create_snake(pos):
+    snake_body = Turtle()
+    snake_body.shape("square")
+    snake_body.color("white")
+    snake_body.up()
+    snake_body.goto(pos)
+    snakes.append(snake_body)
+
+#먹이 랜덤 함수
+def rand_pos():
+    rand_x = random.randint(-250,250)
+    rand_y = random.randint(-250,250)
+    return rand_x, rand_y
+
+def score_update():
+    global score
+    score +=1
+    score_pen.clear()
+    score_pen.write(f"점수 : {score}", font=("", 15, "bold"))
+
+def game_over():
+    score_pen.goto(0,0)
+    score_pen.write("Game Over", False, "center", ("", 30, "bold"))
+
+#화면 설정
+screen = Screen()
+screen.setup(600, 600)
+screen.bgcolor("green")
+screen.title("Snake Game")
+screen.tracer(0)
+
+# 뱀 만들기
+start_pos = [(0,0),(-20,0),(-40,0)]
+snakes = []
+#점수초기값
+score = 0
+
+for pos in start_pos:
+    create_snake(pos)
+
+#먹이
+food = Turtle()
+food.shape("square")
+food.color("snow")
+food.up()
+food.speed(0)
+food.goto(rand_pos())
+
+#점수
+score_pen = Turtle()
+score_pen.ht()
+score_pen.up()
+score_pen.goto(-270,250)
+score_pen.write(f"점수 : {score}", font = ("", 15, "bold")) 
+
+#키 적용
+screen.listen()
+screen.onkeypress(up,"Up")
+screen.onkeypress(down,"Down")
+screen.onkeypress(right,"Right")
+screen.onkeypress(left,"Left")
+#뱀 움직임
+game_on = True
+while game_on:
+    screen.update()
+    time.sleep(0.07)
+    for i in range(len(snakes) -1, 0, -1):
+        snakes[i].goto(snakes[i-1].pos())
+
+    snakes[0].forward(15)
+
+    if snakes[0].distance(food) < 15:
+        score_update()
+
+        food.goto(rand_pos())
+        create_snake(snakes[-1].pos())
+    
+    if snakes[0].xcor() >280 or snakes[0].xcor() < -280 or snakes[0].ycor() >280 or snakes[0].ycor() < -280:
+        game_on = False
+        game_over()
+
+    for body in snakes[1:]:
+        if snakes[0].distance(body) < 10:
+            game_on = False
+            game_over()
+screen.mainloop()
