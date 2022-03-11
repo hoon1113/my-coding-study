@@ -1,11 +1,20 @@
-#피하기
-from tkinter import *
+from turtle import Turtle, Screen
+import random
 import time
 
-W = Tk()
-W.title("피하기 게임")
-W.resizable(0,0)
-canvas = Canvas(W, width=640, height=640, bg="white")
-canvas.pack()
-canvas.create_rectangle(310,310,330,330,fill="black")
-W.mainloop()
+#기본 테트리스 조각 모양
+def peace(pos):
+    p_body = Turtle()
+    p_body.shape("square")
+    p_body.color("white")
+    p_body.up()
+    p_body.goto(pos)
+    p_body.append(p_body)
+
+screen = Screen()
+screen.setup(600,800)
+screen.bgcolor("black")
+screen.title("테트리스")
+screen.tracer(0)
+peace()
+screen.mainloop()
