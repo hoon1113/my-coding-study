@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #f5f5f5;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  width: 60px;
+  margin-right: 10px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.user-box {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logout {
+  background-color: #93c5fd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  padding-left: 100px;
+  background-color: #f5f5f5;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.menu-button {
+  padding: 10px 20px;
+  border: 2px solid #80b9f0;
+  border-radius: 20px;
+  background-color: white;
+  color: #1057a6;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-button:hover {
+  background-color: #1057a6;
+  color: white;
+}
+
+.menu-button.active {
+  background-color: #80b9f0;
+  color: white;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px 10px;
+}
+
+.bus h2 {
+  text-align: center;
+}
+
+.campus-bus-grid {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.col {
+  background-color: #f7fafe;
+  border: 2px solid #cde1f9;
+  border-radius: 10px;
+  width: 80px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.col .top {
+  background-color: #1057a6;
+  color: white;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.col .bottom {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.city-bus-box {
+  display: grid;
+  grid-template-columns: 150px 200px;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.terminal {
+  background-color: #004aa2;
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.routes {
+  background-color: white;
+  border: 1px solid #bbb;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+}

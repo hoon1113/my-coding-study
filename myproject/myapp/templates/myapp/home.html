@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CPZ사이트</title>
+    <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
+</head>
+<body>
+  <div class="container">
+    <img src="{% static 'myapp/로고날개.png' %}" alt="CPZ 로고" class="logo">
+    <hr class="divider">
+    <div class="grid">
+      <div class="card" onclick="location.href='{% url 'busmap' %}'">
+        <span>학교 캠퍼스 지도</span>
+      </div>
+      <div class="card">
+        <span>학교 주변 식당</span>
+      </div>
+      <div class="card">
+        <span>학교 소통 공간</span>
+      </div>
+      <div class="card">
+        <span>학교 정보 공간</span>
+      </div>
+  </div>
+  </div>
+</body>
+</html>

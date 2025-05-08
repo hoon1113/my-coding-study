@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>map캠퍼스</title>
+    <link rel="stylesheet" href="{% static 'myapp/css/mapstyle.css' %}">
+</head>
+<body>
+  <div class="header">
+    <img src="{% static 'myapp/로고만.png' %}" alt="CPZ 로고" class="logo">
+    <h1>캠퍼스</h1>
+    <div class="user-box">
+      <span>000님</span>
+      <button class="logout">로그아웃</button>
+    </div>
+  </div>
+
+<nav class="menu">
+  <a href="{% url 'busmap' %}" class="menu-button active">지도</a>
+  <a href="#" class="menu-button">식당</a>
+  <a href="#" class="menu-button">학교소통</a>
+  <a href="#" class="menu-button">학교정보</a>
+</nav>
+
+  <div class="main-container">
+    <!-- 교내버스 -->
+    <section class="bus campus-bus">
+      <h2>교내 버스</h2>
+      <div class="campus-bus-grid">
+        <div class="col">
+          <div class="top">정문</div>
+          <div class="bottom">시간</div>
+        </div>
+        <div class="col">
+          <div class="top">중문</div>
+          <div class="bottom">시간</div>
+        </div>
+        <div class="col">
+          <div class="top">보건대학</div>
+          <div class="bottom">시간</div>
+        </div>
+        <div class="col">
+          <div class="top">학생회관</div>
+          <div class="bottom">시간</div>
+        </div>
+        <div class="col">
+          <div class="top">예술대학</div>
+          <div class="bottom">시간</div>
+        </div>
+        <div class="col">
+          <div class="top">생활관</div>
+          <div class="bottom">시간</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 시내버스 -->
+    <section class="bus city-bus">
+      <h2>시내 버스</h2>
+      <div class="city-bus-box">
+        <div class="terminal">시외 버스<br>터미널</div>
+        <div class="routes">가는 버스 번호들</div>
+        <div class="terminal">오송역</div>
+        <div class="routes">가는 버스 번호들</div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
